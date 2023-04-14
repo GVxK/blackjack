@@ -11,13 +11,16 @@ newGameEl.disabled = false
 let drawCardEl = document.getElementById("drawcard-el")
 drawCardEl.disabled = true
 let message = ""
+let firstCard = drawFirstCard() 
+let secondCard = drawSecondCard()
 
 //New game button
 function newGame() {    
-    let firstCard = getRandomCard() 
-    let secondCard = getRandomCard()
+    let firstCard = drawFirstCard() 
+    let secondCard = drawSecondCard()
     cards = [firstCard, secondCard] 
     sum = cards[0] + cards[1]
+
     renderGame()
 }
 //Game system 
@@ -63,6 +66,8 @@ function getRandomCard() {
     let randomCard = Math.floor(Math.random() *11) + 1
     if (randomCard === 11) {
         return getAce()
+    } else if (randomCard === 1) {
+        return getAce()
     } else {
         return randomCard
     }
@@ -71,9 +76,31 @@ function getRandomCard() {
 //Ace if
 function getAce() {
     let ace = 11
-    if ( sum + ace >= 21) {
+    if ( sum + ace > 21) {
         return 1
-    } else {
+    } else if ( sum + ace <= 21) {
         return 11
     }
+}
+
+function drawFirstCard() {
+    let firstCard = getRandomCard()
+        if (firstCard === 1) {
+            return 11
+        } else {
+        return firstCard
+        }
+        
+}
+
+function drawSecondCard() {
+    let secondCard = getRandomCard()
+        if (firstCard === 11 && secondCard === 1 || 11) {
+            return 1
+        } else if (firstCard !== 11 && secondCard === 1 || 11) {
+            return 11
+        } else {
+            return secondCard
+        }
+        
 }
