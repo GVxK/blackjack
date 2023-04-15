@@ -13,11 +13,11 @@ drawCardEl.disabled = true
 let message = ""
 let firstCard = 0
 let secondCard = 0
-let playerEl = document.getElementById("player-el")
 let player = {
-    name: vxk,
+    name: "vxk",
     chips: 190
 }
+let playerEl = document.getElementById("player-el")
 playerEl.textContent = player.name + ": $" + player.chips
 //New game button
 function newGame() {    
