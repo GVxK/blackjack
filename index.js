@@ -1,3 +1,4 @@
+ 
 
 let cards = [] // [] = array
 let isAlive = false //boolean, condition 
@@ -15,7 +16,7 @@ let firstCard = 0
 let secondCard = 0
 let player = {
     name: "vxk",
-    chips: 190
+    chips: 190,
 }
 let playerEl = document.getElementById("player-el")
 playerEl.textContent = player.name + ": $" + player.chips
