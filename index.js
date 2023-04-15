@@ -69,7 +69,7 @@ function renderGame() {
         }
     }
 
-//New Card button
+
 function drawCard() {
     let newCard = getRandomCard()
     cards.push(newCard)
