@@ -16,7 +16,7 @@ let firstCard = 0
 let secondCard = 0
 let player = {
     name: "vxk",
-    chips: 190,
+    chips: 190
 }
 let playerEl = document.getElementById("player-el")
 playerEl.textContent = player.name + ": $" + player.chips
@@ -32,6 +32,9 @@ function newGame() {
      }
     cards = [firstCard, secondCard] 
     sum = cards[0] + cards[1]
+    player.chips -= 10
+    playerEl.textContent = player.name + ": $" + player.chips
+    
 
     renderGame()
 }
@@ -47,6 +50,8 @@ function renderGame() {
             newGameEl.disabled = false
             drawCardEl.disabled = true
             blackjack = true
+            player.chips += 50
+            playerEl.textContent = player.name + ": $" + player.chips   
             message = "Blackjack!"
         } else {
             isAlive = true
@@ -62,7 +67,6 @@ function renderGame() {
     for (let i = 0; i < cards.length; i++){
             cardsEl.textContent += cards[i] + " "
         }
-    
     }
 
 //New Card button
